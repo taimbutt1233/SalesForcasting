@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>SALES FORCASTER</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+  
+</head>
+
+<body>
+ <div class="login">
+	<h1>PREDICT YOUR SALES</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	
+        <input type="text" name="Outlet_Size_Medium" placeholder="Outlet_Size_Medium" required="required" />
+		    <input type="text" name="Outlet_Size_NA" placeholder="Outlet_Size_NA" required="required" />
+        <input type="text" name="Outlet_Size_Small" placeholder="Outlet_Size_Small" required="required" />
+        <input type="text" name="Outlet_Type_Supermarket Type1" placeholder="Outlet_Type_Supermarket Type1" required="required" />
+        <input type="text" name="Outlet_Type_Supermarket Type2" placeholder="Outlet_Type_Supermarket Type2" required="required" />
+        <input type="text" name="Outlet_Type_Supermarket Type3" placeholder="Outlet_Type_Supermarket Type3" required="required" />
+
+
+
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
